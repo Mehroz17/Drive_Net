@@ -20,7 +20,9 @@ While vehicle owners often seek opportunities to connect with like-minded indivi
 
 This repository contains the following components:
 
-1. **Presentation** 📊: https://github.com/Mehroz786/DriveNet/blob/main/DriveNet-%20FYP%20Presentation.pptx
-2. **Proposal** 📄: https://github.com/Mehroz786/DriveNet/blob/main/DriveNet%20Proposal%20Original.docx
-3. **Data Scrapping Part** ⛏ : https://github.com/Mehroz786/DriveNet/tree/main/DataScrappingPart
-4. **Scar Scratch Detection using Yolov8** : https://github.com/Mehroz786/DriveNet/tree/main/Car%20Damage%20Detection
+1. **Presentation** 📊:https://github.com/Mehroz17/Drive_Net/blob/main/DriveNet-%20FYP%20Presentation.pptx
+2. **Proposal** 📄: https://github.com/Mehroz17/Drive_Net/blob/main/DriveNet%20Proposal%20Anonymous%20.docx
+3. **Data Scrapping Part** ⛏ :https://github.com/Mehroz17/Drive_Net/tree/main/data_scrapping_part
+4. **Damage Detection using Computer Vision** : https://github.com/Mehroz17/Drive_Net/tree/main/damage_detection_part
+5. **Car Price Prediction using ML** : https://github.com/Mehroz17/Drive_Net/tree/main/price_prediction_model
+6. **API Building Using Flask** : https://github.com/Mehroz17/Drive_Net/tree/main/api_part
