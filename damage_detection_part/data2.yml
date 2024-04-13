@@ -1,0 +1,11 @@
+path: dataset
+train: images
+val: images
+
+nc: 5
+names: [
+'crack',
+'dent',
+'paint-damage',
+'rust',
+'scratch']

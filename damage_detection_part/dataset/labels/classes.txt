@@ -1,0 +1,5 @@
+crack
+dent
+paint-damage
+rust
+scratch
