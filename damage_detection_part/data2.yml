@@ -1,6 +1,6 @@
-path: dataset
-train: images
-val: images
+path: D:\COMSATS\FYP\Coding Part\ModelMaking\Computer_Vision_Part\4th Try\dataset
+train: D:\COMSATS\FYP\Coding Part\ModelMaking\Computer_Vision_Part\4th Try\dataset\images
+val: D:\COMSATS\FYP\Coding Part\ModelMaking\Computer_Vision_Part\4th Try\dataset\images
 
 nc: 5
 names: [

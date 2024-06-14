@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"], select, input[type="file"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        input[type="submit"]:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #loading {
+            border: 6px solid #f3f3f3; /* Light grey */
+            border-top: 6px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #predictionResult {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #predictionResult p {
+            margin-bottom: 10px;
+        }
+        #predictionResult strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Price Prediction</h1>
+        <form id="predictionForm" enctype="multipart/form-data">
+            <label for="carBrand">Car Brand:</label>
+            <input type="text" id="carBrand" name="car_brand">
+
+            <label for="carName">Car Name:</label>
+            <input type="text" id="carName" name="car_name">
+
+            <label for="milage">Milage:</label>
+            <input type="text" id="milage" name="milage">
+
+            <label for="modelYear">Model Year:</label>
+            <input type="text" id="modelYear" name="model_year">
+
+            <label for="cityRegistered">City Registered:</label>
+            <input type="text" id="cityRegistered" name="city_registered">
+
+            <label for="engineC">Engine Capacity:</label>
+            <input type="text" id="engineC" name="engine_c">
+
+            <label>Transmission:</label>
+            <input type="radio" id="automatic" name="trans" value="automatic">
+            <label for="automatic">Automatic</label>
+            <input type="radio" id="manual" name="trans" value="manual">
+            <label for="manual">Manual</label>
+
+            <label for="fuelType">Fuel Type:</label>
+            <select id="fuelType" name="fuel_type">
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+                <option value="electric">Electric</option>
+                <!-- Add more options if needed -->
+            </select>
+
+            <label>Category:</label>
+            <input type="radio" id="categorySUV" name="cate" value="SUV">
+            <label for="categorySUV">SUV</label>
+            <input type="radio" id="categoryHatchback" name="cate" value="Hatchback">
+            <label for="categoryHatchback">Hatchback</label>
+            <input type="radio" id="categorySedan" name="cate" value="Sedan">
+            <label for="categorySedan">Sedan</label>
+
+
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color">
+
+            <label for="images">Upload Images:</label>
+            <input type="file" id="images" name="images" multiple>
+
+            <input type="submit" value="Predict Price" disabled>
+        </form>
+
+        <div id="loading"></div>
+        <div id="predictionResult"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('predictionForm');
+        const submitButton = form.querySelector('input[type="submit"]');
+
+        // Function to check if all form fields are filled
+        function checkFormFields() {
+            const formData = new FormData(form);
+            let allFilled = true;
+            for (let [key, value] of formData.entries()) {
+                if (!value) {
+                    allFilled = false;
+                    break;
+                }
+            }
+            submitButton.disabled = !allFilled;
+        }
+
+        // Event listeners to check form fields on input
+        form.addEventListener('input', checkFormFields);
+        form.addEventListener('change', checkFormFields);
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            // Show loading animation
+            document.getElementById('loading').style.display = 'block';
+
+            fetch('http://192.168.10.20:4000/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Hide loading animation
+                document.getElementById('loading').style.display = 'none';
+
+                // Check if data object contains the expected properties
+                if (data && data.predicted_price && data.lower_limit && data.upper_limit && data.result) {
+                    document.getElementById('predictionResult').innerHTML = `
+                        <p>${data.result}</p>
+                        <p><strong>Predicted Price:</strong> ${data.predicted_price}</p>
+                        <p><strong>Body Condition:</strong> ${data.body_condition}</p>
+                        <p><strong>Tolerance Range:</strong> ${data.lower_limit} - ${data.upper_limit}</p>
+                    `;
+                } else {
+                    throw new Error('Invalid data format received from the server');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Display error message on frontend
+                document.getElementById('predictionResult').innerHTML = `<p>Error fetching data. Please try again later.</p>`;
+                // Hide loading animation
+                document.getElementById('loading').style.display = 'none';
+            });
+        });
+
+        // Initial check to disable/enable submit button
+        checkFormFields();
+    </script>
+</body>
+</html>
