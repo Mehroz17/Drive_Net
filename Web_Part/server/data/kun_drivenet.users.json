@@ -1,0 +1,138 @@
+[{
+  "_id": {
+    "$oid": "66080c30d6ce7399b3f94cbc"
+  },
+  "firstName": "Hafiz",
+  "lastName": "Ahmad",
+  "email": "kun@gmail.com",
+  "password": "$2b$10$vQto6kyUtjmHXDObGVwv8OTxx5sxTrMXxsaS1fDu4OJW6nTnaU6.y",
+  "picturePath": "1_Hyundai_Sonata.jpg",
+  "friends": [
+    "660836e30bcd4be9e7aee028"
+  ],
+  "location": "Babarloi",
+  "occupation": "Software Engineer",
+  "viewedProfile": 7051,
+  "impressions": 9785,
+  "createdAt": {
+    "$date": "2024-03-30T12:57:20.511Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-20T21:41:24.404Z"
+  },
+  "__v": 44,
+  "followers": [
+    "66090ba6158fbfcb79ca3815",
+    "6609125e363ca6de2f3ce8e4"
+  ],
+  "phone": "0301 8497829",
+  "status": 1,
+  "profileViews": 7,
+  "role": "user"
+},
+{
+  "_id": {
+    "$oid": "660836e30bcd4be9e7aee028"
+  },
+  "firstName": "Muhammad",
+  "lastName": "Zohaib",
+  "email": "zoh@gmail.com",
+  "password": "$2b$10$F0D5yTGUO2sPBEpLpViQKOOHsgUaTEm.BqB2lJJZ44TgLpSMmoffe",
+  "picturePath": "418574.jpg",
+  "friends": [
+    "66080c30d6ce7399b3f94cbc"
+  ],
+  "location": "LDA, PK",
+  "occupation": "Software Engineer",
+  "viewedProfile": 4391,
+  "impressions": 5265,
+  "createdAt": {
+    "$date": "2024-03-30T15:59:31.331Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-23T20:05:49.072Z"
+  },
+  "__v": 47,
+  "followers": [
+    "66090ba6158fbfcb79ca3815",
+    "6609125e363ca6de2f3ce8e4"
+  ],
+  "phone": "0301 5879525"
+},
+{
+  "_id": {
+    "$oid": "6609293931094343a73d36d4"
+  },
+  "firstName": "Mehroz",
+  "lastName": "Ahmad",
+  "email": "meh@gmail.com",
+  "password": "$2b$10$.45HdzOmZfU9o2QLo4kDMu5o5hRWO59IWrzAn2lXv65qATbCusjBC",
+  "picturePath": "wp3981321-astronaut-wallpapers.jpg",
+  "friends": [
+    "66080c30d6ce7399b3f94cbc"
+  ],
+  "location": "LDA, PK",
+  "occupation": "ML Engineer",
+  "viewedProfile": 1508,
+  "impressions": 8028,
+  "createdAt": {
+    "$date": "2024-03-31T09:13:29.641Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-14T09:54:08.427Z"
+  },
+  "__v": 1,
+  "phone": "0301 4602467"
+},
+{
+  "_id": {
+    "$oid": "6620c4d5ec57fbcf478f3ce6"
+  },
+  "firstName": "QAZWSX",
+  "lastName": "EDCRFV",
+  "email": "fa20-bse-051@cuilahore.edu.pk",
+  "phone": "12345678909",
+  "password": "$2b$10$bq9rerNCsMk/XjFbkdTwru51GNx89zDEkn6xO2G0f6/OA4Ymr2jM6",
+  "picturePath": "babydjkf.jpeg",
+  "friends": [
+    "66080c30d6ce7399b3f94cbc",
+    "660836e30bcd4be9e7aee028"
+  ],
+  "location": "lahore",
+  "occupation": "student",
+  "viewedProfile": 6134,
+  "impressions": 1445,
+  "createdAt": {
+    "$date": "2024-04-18T06:59:33.663Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-18T09:09:11.260Z"
+  },
+  "__v": 22
+},
+{
+  "_id": {
+    "$oid": "66749c4fb61514ce34df4168"
+  },
+  "status": 1,
+  "firstName": "Admin",
+  "lastName": "Admin",
+  "email": "admin@drivenet.com",
+  "phone": "03012334567",
+  "password": "$2b$10$QRfR53cdzQ8/Ig1DZPdKB.u6wm9Hf6fVHZEEDUGvySXDlNiG.MIf.",
+  "picturePath": "showfake.jpeg",
+  "friends": [],
+  "location": "Lahore",
+  "occupation": "Drivenet Owner",
+  "viewedProfile": 6915,
+  "impressions": 576,
+  "profileViews": 0,
+  "createdAt": {
+    "$date": "2024-06-20T21:17:03.292Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-20T21:17:03.292Z"
+  },
+  "__v": 0,
+  "role": "admin"
+}]
